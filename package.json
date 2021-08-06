@@ -1,0 +1,25 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "run npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bvquoc2003/Learn_Javascript.git"
+  },
+  "author": "Bui Vi Quoc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bvquoc2003/Learn_Javascript/issues"
+  },
+  "homepage": "https://github.com/bvquoc2003/Learn_Javascript#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
