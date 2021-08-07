@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/bvquoc2003/Learn_Javascript#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-jest": "^27.0.6",
     "jest": "^27.0.6"
   }
 }
