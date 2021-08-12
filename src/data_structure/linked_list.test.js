@@ -37,6 +37,62 @@ describe('insert(data, position)', () => {
   });
 });
 
+describe('remove(pos)', () => {
+  it('should return null if list is empty', () => {
+    const numberLinkedList = createLinkedList();
+    expect(numberLinkedList.remove()).toBe(null);
+    expect(numberLinkedList.remove(-1)).toBe(null);
+    expect(numberLinkedList.remove(1000)).toBe(null);
+  });
+  it('should remove tail if pos is undefined', () => {
+    const numberLinkedList = createLinkedList([0, 1, 2]);
+    expect(numberLinkedList.remove()).toEqual({
+      data: 0,
+      next: { data: 1, next: null },
+    });
+    expect(numberLinkedList.remove()).toEqual({
+      data: 0,
+      next: null,
+    });
+  });
+
+  it('should remove head if pos <= 0', () => {
+    const numberLinkedList = createLinkedList([0, 1, 2]);
+    expect(numberLinkedList.remove(-1)).toEqual({
+      data: 1,
+      next: { data: 2, next: null },
+    });
+    expect(numberLinkedList.remove(0)).toEqual({
+      data: 2,
+      next: null,
+    });
+  });
+
+  it('should remove tail if pos >= size', () => {
+    const numberLinkedList = createLinkedList([0, 1, 2]);
+    expect(numberLinkedList.remove(3)).toEqual({
+      data: 0,
+      next: { data: 1, next: null },
+    });
+    expect(numberLinkedList.remove(4)).toEqual({
+      data: 0,
+      next: null,
+    });
+  });
+
+  it('1 <= pos < size', () => {
+    const numberLinkedList = createLinkedList([0, 1, 2, 3]);
+    expect(numberLinkedList.remove(2)).toEqual({
+      data: 0,
+      next: { data: 1, next: { data: 3, next: null } },
+    });
+    expect(numberLinkedList.remove(2)).toEqual({
+      data: 0,
+      next: { data: 1, next: null },
+    });
+  });
+});
+
 describe('some(isValidFn)', () => {
   it('should return false if list is empty', () => {
     const numberLinkedList = createLinkedList();

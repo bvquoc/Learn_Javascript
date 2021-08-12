@@ -1,4 +1,4 @@
-function createLinkedList() {
+function createLinkedList(arr) {
   let head = null;
 
   function forEach(callbackFn) {
@@ -128,6 +128,9 @@ function createLinkedList() {
     });
   }
 
+  if (arr && Array.isArray(arr)) {
+    for (let x of arr) insert(x);
+  }
   return {
     forEach,
     getHead,
@@ -143,14 +146,8 @@ function createLinkedList() {
   };
 }
 
-const myLinked = createLinkedList();
+const myLinked = createLinkedList([0, 1, 2, 3, 4, 5]);
 
-myLinked.insert(0);
-myLinked.insert(1);
-myLinked.insert(2);
-myLinked.insert(3);
-myLinked.insert(4);
-myLinked.insert(5);
 myLinked.insert(-111, -12);
 myLinked.insert(2003, 4);
 myLinked.insertTail(999);
