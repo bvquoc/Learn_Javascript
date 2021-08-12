@@ -13,6 +13,10 @@ function createLinkedList() {
     }
   }
 
+  function getHead() {
+    return head;
+  }
+
   function getTail() {
     if (!head) return null;
     let tail = head;
@@ -55,6 +59,10 @@ function createLinkedList() {
 
   function insert(data, position) {
     if (position <= 0 || !head) return insertHead(data);
+    if (position === undefined) {
+      insertTail(data);
+      return head;
+    }
     let preNode = head;
     let curNode = head;
     let i = 0;
@@ -65,6 +73,29 @@ function createLinkedList() {
     }
     const newNode = { data, next: curNode };
     preNode.next = newNode;
+    return head;
+  }
+
+  function remove(pos) {
+    if (!head) return null;
+    if (pos <= 0) {
+      // remove head
+      head = head.next;
+      return head;
+    }
+
+    if (pos === undefined) pos = Infinity;
+    let preNode = head;
+    let curNode = head;
+    let i = 0;
+
+    while (curNode.next && i < pos) {
+      preNode = curNode;
+      curNode = curNode.next;
+      i++;
+    }
+
+    preNode.next = curNode.next;
     return head;
   }
 
@@ -98,10 +129,14 @@ function createLinkedList() {
   }
 
   return {
+    forEach,
+    getHead,
+    getTail,
     getSize,
     insertHead,
     insertTail,
     insert,
+    remove,
     some,
     every,
     printList,
@@ -109,21 +144,31 @@ function createLinkedList() {
 }
 
 const myLinked = createLinkedList();
-myLinked.insertTail(1);
-myLinked.insertTail(2);
-myLinked.insertTail(3);
-myLinked.insertTail(4);
-myLinked.insertTail(5);
-myLinked.insertHead(0);
 
-myLinked.insert(-1, 4);
-myLinked.insert(-111, -1);
-myLinked.insert(+999, 4346);
+myLinked.insert(0);
+myLinked.insert(1);
+myLinked.insert(2);
+myLinked.insert(3);
+myLinked.insert(4);
+myLinked.insert(5);
+myLinked.insert(-111, -12);
+myLinked.insert(2003, 4);
+myLinked.insertTail(999);
+myLinked.insert(9999, 1234);
 
-myLinked.insert(5, 1);
-myLinked.insert(10, 2);
-myLinked.insert(15, 3);
-myLinked.insert(0, 1);
-myLinked.printList();
+myLinked.forEach((x) => {
+  console.log(x.data);
+});
+
+console.log('---------');
+
+myLinked.remove();
+myLinked.remove(4);
+myLinked.remove(0);
+myLinked.remove();
+
+myLinked.forEach((x) => {
+  console.log(x.data);
+});
 
 module.exports = createLinkedList;
