@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
-  "type": "module",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "testw": "jest --watch",
+    "testc": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "babel-jest": "^27.0.6",
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "jest-cli": "^27.0.6"
   }
 }
