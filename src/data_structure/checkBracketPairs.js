@@ -19,6 +19,8 @@ function createStack() {
 }
 
 function isValidBracketPairs(str) {
+  if (typeof str !== 'string') return false;
+
   const OPEN_BRACKETS = {
     '(': ')',
     '{': '}',
@@ -47,3 +49,5 @@ function isValidBracketPairs(str) {
 
 console.log(isValidBracketPairs('(a + b) * (c + d)')); // --> true
 console.log(isValidBracketPairs('(a + b) * c[1')); // --> false vì thiếu dấu đóng ngoặc
+
+module.exports = isValidBracketPairs;
