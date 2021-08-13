@@ -25,6 +25,6 @@ const categoryList = [
 ];
 
 console.log(buildCategoryMapV1(categoryList));
+console.log(buildCategoryMapV2(categoryList));
 
-module.exports = buildCategoryMapV1;
-// buildCategoryMapV2,
+module.exports = { buildCategoryMapV1, buildCategoryMapV2 };
