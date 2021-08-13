@@ -32,12 +32,13 @@ function isValidBracketPairs(str) {
 
   const stack = createStack();
   for (let i = 0; i < str.length; i++) {
-    if (OPEN_BRACKETS[str[i]]) {
-      stack.push(str[i]);
+    const thisBracket = str[i];
+    if (OPEN_BRACKETS[thisBracket]) {
+      stack.push(thisBracket);
     }
-    if (CLOSE_BRACKETS[str[i]]) {
+    if (CLOSE_BRACKETS[thisBracket]) {
       const openBrac = stack.pop();
-      if (CLOSE_BRACKETS[str[i]] !== openBrac) return false;
+      if (thisBracket !== OPEN_BRACKETS[openBrac]) return false;
     }
   }
 
