@@ -1,31 +1,3 @@
-// function partition(numberList, left, right) {
-//   let pivot = numberList[Math.trunc((right + left) / 2)], //middle element
-//     i = left, //left pointer
-//     j = right; //right pointer
-//   while (i <= j) {
-//     while (numberList[i] < pivot) i++;
-//     while (numberList[j] > pivot) j--;
-//     if (i <= j) {
-//       const temp = numberList[i];
-//       numberList[i] = numberList[j];
-//       numberList[j] = temp;
-//       i++;
-//       j--;
-//     }
-//   }
-//   return i;
-// }
-
-// function quickSort(numberList, left, right) {
-//   let index;
-//   if (numberList.length > 1) {
-//     index = partition(numberList, left, right); //index returned from partition
-//     if (left < index - 1) quickSort(numberList, left, index - 1);
-//     if (index < right) quickSort(numberList, index, right);
-//   }
-//   return numberList;
-// }
-
 function partition(numberList, left, right, compare) {
   const mid = left + Math.trunc((right - left) / 2);
   const pivot = numberList[mid];
